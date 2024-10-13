@@ -40,9 +40,9 @@ void multPolynomials(Byte* A,Byte* B,Byte* res){
 
 // for gcm the field is GF(2^128) by quotient of f=1+x+x^2+x^7+x^128
 
-static unsigned long int xmodf =0x87; // represents the polynomial f
+static Byte xmodf =0x87; // represents the polynomial f
 
-static unsigned long int polynomial128 [4]={0,0,0,0}; // used for multiplication in GF(2^128)
+
 
 
 void xor128(Byte* p1,Byte* p2,Byte* *res){
@@ -51,7 +51,7 @@ void xor128(Byte* p1,Byte* p2,Byte* *res){
     }
 }
 
-void xtime_GF128(Byte* p,Byte *res){ // we see a polynomial of GF(2)/f as two unsigned long long int to represent the coefficients (left most are the highest degrees)
+void xtime_GF128(Byte* p,Byte *res){ 
     int carry=0;
     for(int i=15;i>-1;--i){
         if(carry){
